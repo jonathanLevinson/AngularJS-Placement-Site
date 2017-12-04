@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <span id="logo">devJobs</span>
+            </a>
+        </div>
+        <div class="nav navbar-nav navbar-right collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a>About</a></li>
+                <li ng-hide="$ctrl.isSignedIn"><a href='#register'>Register</a></li>
+                <li ng-show="$ctrl.isSignedIn"><a href='#myPositions'>My positions</a></li>
+            </ul>
+            <button ng-hide="$ctrl.isSignedIn" type="button" class="btn btn-default navbar-btn" data-toggle="modal" 
+                data-target="#signInModal">Sign in <span class="glyphicon glyphicon-user"></span></button>
+            <button ng-show="$ctrl.isSignedIn" type="button" class="btn btn-default navbar-btn" ng-click="$ctrl.signOut()"  
+                >Sign out {{$ctrl.user.userName}} <span class="glyphicon glyphicon-user"></span></button>
+        </div>
+    </div>
+</nav>

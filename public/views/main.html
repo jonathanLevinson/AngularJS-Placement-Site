@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+        <div class="jumbotronContent">
+            <div class="headlineContainer">
+                <span class="headline">Find yourself a solid job in the tech industry</span>
+            </div>
+            <div class="search" ng-controller="searchController" >
+                <Skills id="mainSkills" class="searchField" update="updateSelectedSkills(skills)"></Skills>
+                <!-- <input class="searchField" type="text" placeholder=" Time from post date"> -->
+                <select id="dropDown" class="searchField" ng-model="selectedCompany" >
+                    <option value="" selected>Select company</option>
+                    <!-- <option value="">none</option> -->
+                    <option ng-repeat="company in companies track by $index" value="{{company.companyName}}">{{company.companyName}}</option>
+                </select>
+                <button class="searchButton" ng-click="searchDB()">Search</button>
+            </div>
+        </div>
+    </div>   
+</div>
+<div class="mainContainer">
+    <positions-list></positions-list>    
+</div>

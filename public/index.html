@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdtGPc2gg0Wh8UWRWDGDy8ChwLNyB5DnI&libraries=places"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/javascripts/routeConfig.js"></script>
+    <script src="/javascripts/services/positions.js"></script>
+    <script src="/javascripts/services/users.js"></script>
+    <script src="/javascripts/services/mapService.js"></script>
+    <script src="/javascripts/services/skills.js"></script>
+    <script src="/javascripts/controllers/app.js"></script>
+    <script src="/javascripts/controllers/signIn.js"></script>
+    <script src="/javascripts/controllers/register.js"></script>
+    <script src="/javascripts/controllers/search.js"></script>
+    <script src="/javascripts/components/navBar/navBar.js"></script>
+    <script src="/javascripts/components/footer/footer.js"></script>
+    <script src="/javascripts/components/positionsList/positionsList.js"></script>
+    <script src="/javascripts/components/position/position.js"></script>
+    <script src="/javascripts/components/googleMap/googleMap.js"></script>
+    <script src="/javascripts/components/skills/skills.js"></script>
+    <script src="/javascripts/components/skill/skill.js"></script>
+    <title>devJobs - Placement hub for developers</title>
+</head>
+
+<body ng-app="mainApp" ng-controller="mainController">
+    <div class="wrapper">
+        <nav-bar></nav-bar>
+        <div ng-view></div>
+    </div>
+    <footer></footer> 
+    
+    <div id="signInModal" class="modal fade" role="dialog" ng-controller="signInController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sign In</h4>
+                </div>
+                <div class="modal-body">
+                     <form>
+                        <div class="form-group">
+                            <label for="email">User name</label>
+                            <input type="text" class="form-control" id="userName" ng-model="userName" ng-focus="wrongDetails=''">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" ng-model="password" ng-change="wrongDetails=''">
+                        </div>
+                         <span id="wrongDetails" class="row">{{wrongDetails}}</span> 
+                        <!-- <div class="checkbox">
+                            <label><input type="checkbox"> Remember me</label>
+                        </div> -->
+                        <button  class="btn btn-default" ng-click="processSignIn()">Submit</button>
+                    </form> 
+                </div>                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div class="skillsInput" data-toggle="modal" 
+  data-target="#skillsModal"><span 
+    class="skillsButtonText">Select skills <span 
+    class="numberOfSkills">{{$ctrl.activeSkillsCount === 0 ? '' : '(' + $ctrl.activeSkillsCount + ')'}}</span></span></div>
+
+
+<div id="skillsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Choose Skills</h4>
+      </div>
+      <div class="modal-body">
+         <div class="skillsContainer">
+            <skill info="skill" status="skill.isChecked" on-check="$ctrl.toggleSkill(skill)" ng-repeat="skill in $ctrl.skills track by $index"></skill>
+            <!-- <div class="checkbox" ng-repeat="skill in $ctrl.skills track by $index">
+                <label class=""><input type="checkbox" info="skill" 
+                    ng-model="$ctrl.status">{{skill.skillName}}</label>{{$ctrl.status}}
+            </div> -->
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.reset()">Reset</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="positionItem">
+    <div class="header" ng-click="$ctrl.toggle()">
+        <div class="headerTop row">
+            <div class="positionTitle col-md-10">
+                <span class="caption darkText">{{$ctrl.current.caption}}</span>
+                <span class="companyName brightText">{{$ctrl.current.companyName}}</span>
+            </div>        
+            <div class="date col-md-2 brightText">
+                {{$ctrl.current.publishDate}}
+            </div>
+        </div>
+        <div class="skills">
+            <div class="skill" ng-repeat="skill in $ctrl.current.skills track by $index"><span class="glyphicon glyphicon-ok-circle"></span> {{skill}}</div>
+        </div>
+    </div>
+    <div class="descriptionContainer row" ng-show="$ctrl.open" ng-click="$ctrl.toggle()">
+        <div class="details col-md-4">        
+            <div class="description derkText">{{$ctrl.current.description}}</div>            
+        </div>
+    </div>
+    <div class="bottomContainer row" ng-show="$ctrl.open">
+        <div class="address brightText col-md-4">
+                {{$ctrl.current.address + ', ' + $ctrl.current.city + ', ' + $ctrl.current.country}}
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-3 apply">
+            <span ng-hide="$ctrl.isSignedIn" class="darkText">Sign in to apply to this position</span>
+            <button ng-show="$ctrl.isSignedIn" ng-click="$ctrl.onApply()" class="btn btn-default">Apply to this postion</button>
+        </div>
+    </div>
+</div>

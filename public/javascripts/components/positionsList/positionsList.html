@@ -1,0 +1,12 @@
+<div class="positionsDisplay">
+    <span ng-hide="$ctrl.positions.length > 0" 
+        style="display: flex; justify-content: center;">No results, try again with different search settings.</span>
+    <position ng-repeat="position in $ctrl.positions | limitTo : $ctrl.resultsPerPage : $ctrl.indexOfFirstShownPosition track by $index" 
+        info="position"></position>
+    <div class="prevNextButtons row">
+        <div class="col-md-6 buttonContainer"><button ng-click="$ctrl.decreaseShowIndex()" 
+            ng-show="$ctrl.indexOfFirstShownPosition >= $ctrl.resultsPerPage">Previous</button></div>
+        <div class="col-md-6 buttonContainer"><button ng-click="$ctrl.increaseShowIndex()"
+            ng-show="($ctrl.indexOfFirstShownPosition + $ctrl.resultsPerPage) < $ctrl.positions.length">Next</button></div>
+    </div>
+</div>

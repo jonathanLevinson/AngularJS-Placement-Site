@@ -1,0 +1,25 @@
+body controller=main
+    navbar
+    ng-view
+        main controller=search
+            *jumbotron*
+                *search*
+                    skills
+                        skill
+            positionsList
+                position
+        myPositions
+            *jumbotron*
+            myPositions(view)
+        register controller=register
+            *jumbotron*
+            register (view)
+                googleMap
+    footer
+    sign-in modal controller=signIn
+
+
+    * - future changes
+
+
+    
