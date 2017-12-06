@@ -1,6 +1,6 @@
-A Placement site developed with the following tools:
+### A job search site developed with the following tools:
 
-AngularJS
-Bootstrap
-Node.js + express
-MySQL
+* AngularJS
+* Bootstrap
+* Node.js + express
+* MySQL
